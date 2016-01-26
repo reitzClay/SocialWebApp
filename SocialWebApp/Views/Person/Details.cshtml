@@ -1,0 +1,81 @@
+﻿@model SocialWebApp.Models.Person
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Person</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)            
+        </dd>
+        <dt>
+            <br />            
+            @Html.DisplayNameFor(model => model.RelationshipTypes)            
+        </dt>
+        <dd>
+            <br />
+            <br />
+            <table class="table">
+                <tr>
+                    <th>First Name</th>                    
+                    <th>Last Name</th>
+                    <th>Relationship</th>                    
+                </tr>
+                @foreach (var item in Model.RelationshipTypes)
+
+                {
+
+                    <tr>
+                        <td>
+                          <!-- @Html.DisplayFor(modelItem => item.Related.FirstName)-->
+                            @Html.ActionLink(item.Related.FirstName, "Details", new { id = item.Related.RelatedID })
+                        </td>                      
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Related.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Relations)
+                        </td>                        
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |    
+    @Html.ActionLink("Back to List", "Index")
+</p>

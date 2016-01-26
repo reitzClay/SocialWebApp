@@ -1,0 +1,42 @@
+﻿@model SocialWebApp.Models.RelationshipType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RelationshipType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Person.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Person.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Related.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Related.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Relations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Relations)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RelationshipTypeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

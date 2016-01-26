@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SocialWebApp.Models.RelationshipType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Person.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Related.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Relations)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Person.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Related.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Relations)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RelationshipTypeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RelationshipTypeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RelationshipTypeID })
+        </td>
+    </tr>
+}
+
+</table>
